@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import apiClient from '../services/api-client';
+import { Text } from '@chakra-ui/react';
 
 interface Game {
   id: number;
@@ -24,11 +25,14 @@ const GameGrid = () => {
     [];
 
   return (
-    <ul>
-      {games.map((game) => (
-        <li key={game.id}>{game.name}</li>
-      ))}
-    </ul>
+    <>
+      {error && <Text>{error}</Text>}
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 
